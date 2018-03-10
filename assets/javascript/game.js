@@ -22,13 +22,15 @@
 
 // I need to create the var that i will use 
 
-var win=[];
-var losses=[];
-var score=0;
-var cristals=[];
+var win=0;
+var losses=0;
+var crystals=[];
+var plus= 0;
 
-
-// i need a number random that get diplay in the DOM
+var start= function() {
+    // at the reser point of the start we have to get back the cristals
+    $(".crystals").empty();
+    // i need a number random that get diplay in the DOM
 Guess_total = (Math.floor(Math.random()*101)+19);
 $("#total").html('Guess total:  '+ Guess_total);
 // testin the number of the pc choice random
@@ -39,8 +41,8 @@ for (var i = 0; i < 4; i++){
     // $(".crystals").empty();
 // how to asigne random number to the crystals 
     var rnumber= [Math.floor(Math.random() * 11)+1];
-// i have to create the cristals to be able to use the number on i can try in jquery or in html 
-    
+    // i have to create the cristals to be able to use the number on i can try in jquery or in html 
+
 var crystal =$("<div>");
         crystal.attr({
         "class": 'crystal',
@@ -51,9 +53,29 @@ var crystal =$("<div>");
 
  console.log (rnumber);
 }
+}
+start();
 // funtin to create an event as soon i click each cristal
-$(".crystal").on('click', function (){
+// ask whats event delegation
+$(document).on('click',".crystal", function (){
     var num = parseInt($(this).attr('data-rnumber'));
+// add numbers of dimonts bettwen them
+    plus += num;
+// stop adition to go over the number that the pc give us showing win or lose
+if (plus > Guess_total){
+    losses--;
+    $("#lost").html(losses);
+//  alert("Bad luck you lose!!!");
+start();
+}
+else if (plus === Guess_total){
+    win++;
+    $("#win").html(win);
+    // alert("oooohh YEAH you win!!!");
+    start();
+}  
    console.log ($(this).attr('data-rnumber'));
+   console.log (plus);
+
 });
 
