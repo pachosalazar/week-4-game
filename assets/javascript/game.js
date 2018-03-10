@@ -36,5 +36,5 @@ for (var i = 0; i < 4; i++){
 
 }
 // i have to create a randon number for the pc choice 
-var pcn = rnumber[Math.floor((Math.random() * 101 ) + 19 )];
+// var pcn = rnumber[Math.floor((Math.random() * 101 ) + 19 )];
 
