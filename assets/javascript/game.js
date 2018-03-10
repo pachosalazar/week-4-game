@@ -54,23 +54,34 @@ var crystal =$("<div>");
  console.log (rnumber);
 }
 }
+$("#adds").html(plus);
+
 start();
 // funtin to create an event as soon i click each cristal
 // ask whats event delegation
 $(document).on('click',".crystal", function (){
     var num = parseInt($(this).attr('data-rnumber'));
-// add numbers of dimonts bettwen them
+
+    // add numbers of dimonts bettwen them
     plus += num;
+
+    $("#adds").html(plus);
 // stop adition to go over the number that the pc give us showing win or lose
 if (plus > Guess_total){
     losses--;
     $("#lost").html(losses);
+    plus=0;
+    $("#adds").html(plus);
+
 //  alert("Bad luck you lose!!!");
 start();
 }
 else if (plus === Guess_total){
     win++;
     $("#win").html(win);
+    plus=0;
+    $("#adds").html( plus);
+
     // alert("oooohh YEAH you win!!!");
     start();
 }  
