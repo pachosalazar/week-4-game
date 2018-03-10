@@ -21,20 +21,39 @@
 // Each crystal should have a random hidden value between 1 - 12.
 
 // I need to create the var that i will use 
-var rnumber =[];
+
 var win=[];
 var losses=[];
 var score=0;
 var cristals=[];
 
-// try to create crystals by jquery ans js
+
+// i need a number random that get diplay in the DOM
+Guess_total = (Math.floor(Math.random()*101)+19);
+$("#total").html('Guess total:  '+ Guess_total);
+// testin the number of the pc choice random
+console.log (Guess_total);
+// try to create crystals by jquery ans js for the cristals
 for (var i = 0; i < 4; i++){
 
-    var crystal =$("<div>");
-
+    // $(".crystals").empty();
+// how to asigne random number to the crystals 
+    var rnumber= [Math.floor(Math.random() * 11)+1];
+// i have to create the cristals to be able to use the number on i can try in jquery or in html 
+    
+var crystal =$("<div>");
+        crystal.attr({
+        "class": 'crystal',
+        "data-rnumber": rnumber
+        });
+//how to give rnumber to each cristal 
     $(".crystals").append(crystal);
 
+ console.log (rnumber);
 }
-// i have to create a randon number for the pc choice 
-// var pcn = rnumber[Math.floor((Math.random() * 101 ) + 19 )];
+// funtin to create an event as soon i click each cristal
+$(".crystal").on('click', function (){
+    var num = parseInt($(this).attr('data-rnumber'));
+   console.log ($(this).attr('data-rnumber'));
+});
 
