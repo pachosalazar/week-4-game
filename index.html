@@ -5,21 +5,48 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
-  <body>
-    <p id="total"></p>
-    <div class="crystals">
+<body class="text-center"  class="body">
 
-    </div>
-    <p id="adds"></p>
-    <p id="win"></p>
-    <p id="lost"></p>
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        
+        <h1><p class="cover-heading" >Welcome to !! the Crystal game!!</p></h1>
+
+      </div>
+    </header>
+    
+    <main role="main" class="inner cover">
+      <div class="crystals">
+        
+      </div>
+      <p  class="container" id="text">Each one of this beautiful rocks have a number that every time you click will be added toy your score, try to guess the total below, good luck buddy.</p>
+      <p class="lead">
+          <h1><p class="cover-heading" id="total"></p></h1>
+        <a class="alert alert-info" role="alert"  id="adds"></a>
+      </p>
+      <br>
+      <p class="lead">
+      <a class="alert alert-success" role="alert" id="win">Times you win buddy :</a>
+      <a class="alert alert-warning" role="alert" id="lost">Times you lose buddy :</a>
+      </p>
+      
+    </main>
+    <br>
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>&copy;Copyright 2018 Jaime F Salazar</p>
+      </div>
+    </footer>
+  </div>
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./assets/javascript/game.js"></script>

@@ -29,10 +29,17 @@ var plus= 0;
 
 var start= function() {
     // at the reser point of the start we have to get back the cristals
-    $(".crystals").empty();
+    $(".crystals").empty(crystal);
+
+    var img= [
+     "assets/image/opalo.png",
+     "assets/image/esmeralda.png",
+     "assets/image/Rubí.png",
+     "assets/image/diamante.png"
+    ];
     // i need a number random that get diplay in the DOM
 Guess_total = (Math.floor(Math.random()*101)+19);
-$("#total").html('Guess total:  '+ Guess_total);
+$("#total").html('Guess this total:  '+ Guess_total);
 // testin the number of the pc choice random
 console.log (Guess_total);
 // try to create crystals by jquery ans js for the cristals
@@ -43,18 +50,20 @@ for (var i = 0; i < 4; i++){
     var rnumber= [Math.floor(Math.random() * 11)+1];
     // i have to create the cristals to be able to use the number on i can try in jquery or in html 
 
-var crystal =$("<div>");
+      var crystal =$("<img>");
         crystal.attr({
-        "class": 'crystal',
-        "data-rnumber": rnumber
-        });
+        "class": 'crystal' ,
+        "data-rnumber": rnumber,
+        "src": img[i]
+    });
+       
 //how to give rnumber to each cristal 
     $(".crystals").append(crystal);
 
  console.log (rnumber);
 }
 }
-$("#adds").html(plus);
+$("#adds").html("Your total until know is:"+ " " + plus);
 
 start();
 // funtin to create an event as soon i click each cristal
@@ -65,22 +74,22 @@ $(document).on('click',".crystal", function (){
     // add numbers of dimonts bettwen them
     plus += num;
 
-    $("#adds").html(plus);
+    $("#adds").html("Your total until know is:"+ " " + plus);
 // stop adition to go over the number that the pc give us showing win or lose
 if (plus > Guess_total){
     losses--;
-    $("#lost").html(losses);
+    $("#lost").html("Times you lose buddy :"+" "+ losses);
     plus=0;
-    $("#adds").html(plus);
+    $("#adds").html("Your total until know is:"+ " " + plus);
 
 //  alert("Bad luck you lose!!!");
 start();
 }
 else if (plus === Guess_total){
     win++;
-    $("#win").html(win);
+    $("#win").html("Times you win buddy :"+" "+win);
     plus=0;
-    $("#adds").html( plus);
+    $("#adds").html("Your total until know is:"+ " " + plus);
 
     // alert("oooohh YEAH you win!!!");
     start();
